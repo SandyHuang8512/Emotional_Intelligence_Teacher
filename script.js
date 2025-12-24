@@ -116,8 +116,8 @@ document.addEventListener('DOMContentLoaded', () => {
 請直接以小哈的身分回覆。
 【重要限制】：回應請保持簡潔，內容長度請嚴格控制在 7 行以內，但請務必確保語句完整，不要在結尾斷掉。`;
 
-        // 將 2.5 修正為 1.5-flash 或 2.0-flash-exp (2.5 目前尚不存在)
-        const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${key}`;
+
+        const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${key}`;
 
         const response = await fetch(url, {
             method: 'POST',
