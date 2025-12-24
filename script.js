@@ -113,10 +113,11 @@ document.addEventListener('DOMContentLoaded', () => {
 你會仔細分析使用者的困擾，避免給予說教，而是透過詢問、肯定與情感陪伴來引導使用者。
 請確保每次的回應都是獨一無二的，絕對不要使用公式化的固定語句。
 妳也會根據使用者的困難提供一些心理學的小建議，但重點在於情感陪伴。
-請直接以小哈的身分回覆，不要包含任何開頭或結尾的標註（如：諮詢師：）。
-【重要限制】：回應請保持簡潔，內容長度請嚴格控制在 7 行以內，避免過於贅述。`;
+請直接以小哈的身分回覆。
+【重要限制】：回應請保持簡潔，內容長度請嚴格控制在 7 行以內，但請務必確保語句完整，不要在結尾斷掉。`;
 
-        const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${key}`;
+        // 將 2.5 修正為 1.5-flash 或 2.0-flash-exp (2.5 目前尚不存在)
+        const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${key}`;
 
         const response = await fetch(url, {
             method: 'POST',
@@ -131,7 +132,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     temperature: 0.9,
                     topP: 0.95,
                     topK: 64,
-                    maxOutputTokens: 1024,
+                    maxOutputTokens: 2048, // 增加 Token 限制確保不被截斷
                 }
             })
         });
